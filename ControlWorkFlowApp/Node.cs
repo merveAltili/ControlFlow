@@ -9,7 +9,6 @@ namespace ControlWorkFlowApp
 {
     public abstract class Node
     {
-        private Activity activity;
 
         [XmlAttribute]
         public Guid Id { get; set; }

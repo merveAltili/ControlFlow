@@ -37,6 +37,7 @@ namespace ControlWorkFlowApp
             this.activityPanel.Name = "activityPanel";
             this.activityPanel.Size = new System.Drawing.Size(244, 514);
             this.activityPanel.TabIndex = 0;
+            this.activityPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.activityPanel_Paint);
             // 
             // pagePanel
             // 
@@ -47,6 +48,7 @@ namespace ControlWorkFlowApp
             this.pagePanel.Name = "pagePanel";
             this.pagePanel.Size = new System.Drawing.Size(722, 514);
             this.pagePanel.TabIndex = 0;
+            this.pagePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.pagePanel_Paint);
             // 
             // tableLayoutPanel1
             // 
@@ -86,6 +88,7 @@ namespace ControlWorkFlowApp
             this.saveButton.TabStop = false;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Visible = false;
             this.saveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // panel1
@@ -109,6 +112,7 @@ namespace ControlWorkFlowApp
             this.pauseButton.TabStop = false;
             this.pauseButton.Text = "Pause";
             this.pauseButton.UseVisualStyleBackColor = true;
+            this.pauseButton.Visible = false;
             this.pauseButton.Click += new System.EventHandler(this.PauseButton_Click);
             // 
             // stopButton
@@ -121,6 +125,7 @@ namespace ControlWorkFlowApp
             this.stopButton.TabStop = false;
             this.stopButton.Text = "Stop";
             this.stopButton.UseVisualStyleBackColor = true;
+            this.stopButton.Visible = false;
             this.stopButton.Click += new System.EventHandler(this.StopButton_Click);
             // 
             // runButton
@@ -141,8 +146,7 @@ namespace ControlWorkFlowApp
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Name = "PageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Roro Studio";
-            //this.Load += new System.EventHandler(this.PageForm_Load);
+            this.Load += new System.EventHandler(this.PageForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -188,14 +192,14 @@ namespace ControlWorkFlowApp
             }
         }
 
-        //private void PageForm_Load(object sender, System.EventArgs e)
-        //{
-        //    ActivityForm.Create().Parent = this.activityPanel;
-        //    this.page.OnStateChanged += Page_OnStateChanged;
-        //    this.page.Show(this.pagePanel);
-        //    this.page.OnStateChanged += Page_OnStateChanged;
-        //    this.Text = string.Format("{0} - {1}", this.FileName, this.Title);
-        //}
+        private void PageForm_Load(object sender, System.EventArgs e)
+        {
+            ActivityForm.Create().Parent = this.activityPanel;
+            this.page.OnStateChanged += Page_OnStateChanged;
+            this.page.Show(this.pagePanel);
+            this.page.OnStateChanged += Page_OnStateChanged;
+            this.Text = string.Format("{0} - {1}", this.FileName, this.Title);
+        }
 
         private void Page_OnStateChanged(object sender, EventArgs e)
         {
@@ -251,6 +255,16 @@ namespace ControlWorkFlowApp
         private void SaveButton_Click(object sender, EventArgs e)
         {
             this.OnBeforeSave.Invoke(sender, e);
+        }
+
+        private void pagePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void activityPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

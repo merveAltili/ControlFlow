@@ -23,7 +23,7 @@ namespace ControlFlow
         {
             this.CreateWorkflow();
         }
-        private const string FileDialogFilter = " Workflow (*.xml)|*.xml";
+        private const string FileDialogFilter = "Roro Workflow (*.xml)|*.xml";
         private void CreateWorkflow()
         {
             var form = new PageForm(string.Empty);
