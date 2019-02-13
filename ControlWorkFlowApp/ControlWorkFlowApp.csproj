@@ -200,6 +200,9 @@
     <Compile Include="VariableNode.cs" />
     <Compile Include="VariableNodeActivity.cs" />
     <Compile Include="XmlSerializerHelper.cs" />
+    <EmbeddedResource Include="ActivityForm.resx">
+      <DependentUpon>ActivityForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PageForm.resx">
       <DependentUpon>PageForm.cs</DependentUpon>
     </EmbeddedResource>

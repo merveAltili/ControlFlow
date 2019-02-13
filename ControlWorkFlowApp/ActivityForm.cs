@@ -27,6 +27,7 @@ namespace ControlWorkFlowApp
             this.activityLabel = new System.Windows.Forms.Label();
             this.activityPanel.SuspendLayout();
             this.SuspendLayout();
+
             // 
             // activityPanel
             // 
